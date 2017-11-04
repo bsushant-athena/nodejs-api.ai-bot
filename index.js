@@ -22,9 +22,7 @@ app.post('/fetchmydoctor', function(request, response) {
      var formattedResponse = {
         "speech": responseMsg,
         "displayText": responseMsg,
-        "data": {
-            "slack": {&lt;slackMessage&gt;}
-        },
+        "data": {"slack": {<slackMessage>}},
         "contextOut": [],
         "source": "GOT database"
     }
