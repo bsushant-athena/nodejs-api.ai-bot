@@ -11,7 +11,7 @@ app.get('/', function(request, response) {
 })
 
 
-app.get('/fetchmydoctor', function(request, response) {
+app.post('/fetchmydoctor', function(request, response) {
 
     console.log("Fetching a doctor recommendation....")
     var responseMsg = "We searched our database find a recommended doctor for you and the details are " + randomItem(doctorList);
