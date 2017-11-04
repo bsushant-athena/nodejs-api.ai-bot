@@ -11,10 +11,19 @@ app.get('/', function(request, response) {
 })
 
 
-app.get('/fetchdoctor', function(request, response) {
+app.get('/fetchmydoctor', function(request, response) {
 
     console.log("Fetching a doctor recommendation....")
-    response.send(randomItem(doctorList));
+    var responseMsg = "We searched our database find a recommended doctor for you and the details are " + randomItem(doctorList);
+    var formattedResponse = {
+        "speech": responseMsg,
+        "displayText": responseMsg,
+        "data": {},
+        "contextOut": [],
+        "source": "DuckDuckGo"
+    }
+    
+    response.send(formattedResponse);
 })
 
 app.listen(app.get('port'), function() {
