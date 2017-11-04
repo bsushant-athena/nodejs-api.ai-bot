@@ -14,7 +14,7 @@ app.get('/', function(request, response) {
 app.post('/fetchmydoctor', function(request, response) {
 
     console.log("Fetching a doctor recommendation....")
-    var responseMsg = "We searched our database to find a recommended doctor for you and the details are " + randomItem(doctorList);
+    var responseMsg = "Please consider consulting  " + randomItem(doctorList)+ " who has a clinic closeby! Would like to fix an appointment?";
     var slackMessage = {
         "text": responseMsg,
         "attachments": []
