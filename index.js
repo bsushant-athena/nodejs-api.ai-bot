@@ -14,14 +14,21 @@ app.get('/', function(request, response) {
 app.post('/fetchmydoctor', function(request, response) {
 
     console.log("Fetching a doctor recommendation....")
-    var responseMsg = "We searched our database find a recommended doctor for you and the details are " + randomItem(doctorList);
-    var formattedResponse = {
+    var responseMsg = "We searched our database to find a recommended doctor for you and the details are " + randomItem(doctorList);
+    var slackMessage = {
+        "text": responseMsg,
+        "attachments": []
+    }
+     var formattedResponse = {
         "speech": responseMsg,
         "displayText": responseMsg,
-        "data": {},
+        "data": {
+            "slack": {&lt;slackMessage&gt;}
+        },
         "contextOut": [],
-        "source": "DuckDuckGo"
+        "source": "GOT database"
     }
+
     
     response.send(formattedResponse);
 })
